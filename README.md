@@ -1,4 +1,5 @@
-This is Analyrics. A personal project of mine.
+# This is Analyrics. 
+A personal project of mine as an excuse to learn a wide range of skills and libraries.
 The goal is to take what The Pudding, a data journalism site, did with their "Largest Vocabulary in Hip Hop" project and make it more interactive across any genre.
 The project can be found at https://pudding.cool/projects/vocabulary/ .
 
@@ -15,8 +16,6 @@ Running some natural language processing techniques to analyze bigrams, word fre
 Visualizing that analysis.
 Creating a site to house all of this.
 Setting up a backend server to store all the data thats pulled and analyzed.
-
-This is an excuse for me to learn and practice a wide range of python libraries, skills, etc.
 
 Libraries Used:
 pandas
