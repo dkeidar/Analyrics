@@ -22,7 +22,7 @@ pandas
 nltk
 requests
 BeautifulSoup
-Django
+Flask
 re
 
 
