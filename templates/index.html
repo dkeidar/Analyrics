@@ -8,7 +8,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<!--    <link rel="stylesheet" type="text/css" href="custom.css">-->
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
 
     <title>artist bigrams</title>
   </head>
@@ -51,13 +53,20 @@
            </nav>
        </header>
 
+<!--Jumbotron that houses site description and user input box-->
        <div class="container">
-           <div class="jumbotron">
+           <div class="jumbotron" style="padding-bottom:13px">
+
                <div class="container">
                    <h1 class="display-4 text-center">Choose an Artist</h1>
                    <p class="lead text-center">
                        if the artist is spelled correctly, on Genius.com, and Spotify, this should work
                    </p>
+                   <p class="lead text-center" style="font-size:10px">
+                       note: please include the full name of the artist/band because i did not build in error
+                       handling for missing articles such as "the"
+                   </p>
+<!-- this is the user input form-->
                    <div class="row justify-content-center">
                        <form method="POST" action="{{ url_for('home') }}">
                            <div class="input-group">
@@ -70,6 +79,40 @@
                            </div>
                        </form>
                    </div>
+
+                   <div class="row justify-content-center", style="padding-bottom:0, padding-top:10px">
+                       <div class="col-md-8 justify-content-center">
+                           <p class='text-center' style="font-size:10px">
+                               This will take a minute, please be patient.
+                           </p>
+                       </div>
+                   </div>
+
+               </div>
+           </div>
+       </div>
+
+<!--section that prints out the album names and links-->
+       <div class="container">
+
+           {% for album in albums_urls %}
+
+           <div class="row justify-content-center">
+               <div class="col-md-8 text-center">
+                   <a href="{{album.album_url}}">{{album.album_name}}</a>
+               </div>
+           </div>
+
+           {% endfor %}
+
+       </div>
+
+<!--plot for all the bigrams n such-->
+       <div class="container">
+           <div class="row justify-content-center">
+               <div class="col-md-8">
+                   <div id="plot"></div>
+                   <script src="plots.js"></script>
                </div>
            </div>
        </div>
