@@ -4,18 +4,20 @@ The goal is to take what The Pudding, a data journalism site, did with their "La
 The project can be found at https://pudding.cool/projects/vocabulary/ .
 
 How it works:
-A user plugs in two artists they are interested in comparing.
-Those inputs query the Spotify API for the artists available discography.
+A user plugs in an artist they are interested in comparing.
+Those inputs query the Spotify API for the artist's available discography.
 That information is then plugged into Genius, the lyrics and music knowledge site to pull down all lyrics in the available discography.
+
+Then the lyrics are cleaned using nltk to tokenize, remove stopwords, lemmatize, remove contractions etc. Once cleaned, the lyrics are run through a freqency distribution or ngram algorithm to find the most common words, bigrams, and trigrams in a artist's discography. 
 
 That stuff is basically done.
 
 What is to come:
-Actually cleaning the lyrics.
-Running some natural language processing techniques to analyze bigrams, word frequencies etc.
 Visualizing that analysis.
 Creating a site to house all of this.
-Setting up a backend server to store all the data thats pulled and analyzed.
+Setting up a backend server to store all the data thats pulled and analyzed either through DigitalOcean or PythonAnywhere.
+Post photos of how this all works.
+Write up the process so someone can replicate how to start a project like this.
 
 Libraries Used:
 pandas
